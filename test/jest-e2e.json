@@ -3,13 +3,16 @@
   "rootDir": ".",
   "testEnvironment": "node",
   "testRegex": ".e2e-spec.ts$",
+  "extensionsToTreatAsEsm": [".ts"],
   "transform": {
     "^.+\\.(t|j)s$": [
       "ts-jest",
       {
-        "useESM": false,
+        "useESM": true,
         "tsconfig": {
-          "allowJs": true
+          "allowJs": true,
+          "module": "ESNext",
+          "moduleResolution": "Bundler"
         }
       }
     ]
