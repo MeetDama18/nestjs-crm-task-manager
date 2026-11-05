@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: crm_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: crm_db
+      MYSQL_USER: crm_user
+      MYSQL_PASSWORD: crm_password
+    ports:
+      - '3307:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  crm-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crm_api
+    restart: always
+    depends_on:
+      - mysql-db
+    ports:
+      - '3000:3000'
+    environment:
+      PORT: 3000
+      DB_HOST: mysql-db
+      DB_PORT: 3306
+      DB_USERNAME: crm_user
+      DB_PASSWORD: crm_password
+      DB_NAME: crm_db
+      JWT_SECRET: your_super_secure_jwt_secret_key
+      JWT_EXPIRATION: 1d
+
+volumes:
+  mysql_data:
