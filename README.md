@@ -4,6 +4,10 @@ A production-ready Enterprise CRM & Task Management REST API built with NestJS, 
 
 ---
 
+## 🚀 Live Deployment
+- **Live Base URL:** [https://nestjs-crm-task-manager-ekyl.onrender.com](https://nestjs-crm-task-manager-ekyl.onrender.com)
+- **Interactive Swagger API Docs:** [https://nestjs-crm-task-manager-ekyl.onrender.com/api/docs](https://nestjs-crm-task-manager-ekyl.onrender.com/api/docs)
+
 ## 🛠 Tech Stack
 
 - **Runtime & Framework:** Node.js, NestJS (TypeScript)
