@@ -27,6 +27,103 @@ src/
 │   ├── customers/      # CRM client entities and customer tracking
 │   └── tasks/          # Task management with multi-filtering and RBAC scoping
 └── main.ts             # Application bootstrapping, global validation pipes, Swagger
+```
+
+🚀 Getting Started
+
+Prerequisites
+
+Node.js (v18 or v20+)
+npm or yarn
+Docker Desktop
+MySQL 8.0 (if running outside Docker)
+
+
+Local Installation & Setup:
+1. Clone the repository:
+
+git clone https://github.com/MeetDama18/nestjs-crm-task-manager.git
+cd nestjs-crm-task-manager
+
+
+2. Install dependencies:
+
+npm install
+
+
+3. Configure Environment Variables:
+Create a .env file in the root directory:
+
+PORT=3000
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USERNAME=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=crm_task_manager
+JWT_SECRET=super_secret_jwt_key_crm_2026
+JWT_EXPIRATION=1d
+
+
+4. Run the Application:
+
+# Development mode with hot-reloading
+npm run start:dev
+
+# Production build
+npm run build
+npm run start:prod
+
+
+🐳 Docker Deployment
+
+Run both the MySQL database and the NestJS application with a single command via Docker Compose:
+
+1. Build and start the containers:
+
+docker compose up -d --build
+
+
+2. Verify container status:
+
+docker compose ps
+
+
+3. Stop the containers:
+
+docker compose down
+
+
+The API is accessible at http://localhost:3000, and MySQL is exposed on host port 3307.
+
+🧪 Running Automated Tests
+
+Run unit and end-to-end test suites covering business logic, repository mocking, and route authorization:
+
+# Run unit test suite
+npm run test
+
+# Run E2E test suite
+npm run test:e2e
+
+
+📖 API Documentation (Swagger)
+
+Interactive OpenAPI documentation is generated and served at:
+
+http://localhost:3000/api/docs
+
+
+To test protected routes in Swagger:
+
+1. Register or log in via POST /auth/login.
+
+2. Copy the returned accessToken.
+
+3. Click the green Authorize button at the top right of the Swagger UI.
+
+4. Paste the token in the value input and click Authorize.
+
+
 
 ## 📸 Deliverables & Proof of Execution
 
